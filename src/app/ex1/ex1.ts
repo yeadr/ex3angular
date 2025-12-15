@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ex1',
@@ -6,13 +6,18 @@ import { Component } from '@angular/core';
   templateUrl: './ex1.html',
   styleUrl: './ex1.scss',
 })
-export class Ex1 {
+export class Ex1 implements OnInit{
   
-  bgblau(id: string){
-    document.getElementById(id)!.style.backgroundColor = "blue"
+  ngOnInit(){
+    document.addEventListener('mousedown', () => this.bgblau());
+    document.addEventListener('mouseup', () => this.bgtaronja());
   }
 
-  bgtaronja(id: string){
-    document.getElementById(id)!.style.backgroundColor = "orange"
+  bgblau(){
+    document.body!.style.backgroundColor = "blue"
+  }
+
+  bgtaronja(){
+    document.body!.style.backgroundColor = "orange"
   }
 }
